@@ -80,7 +80,7 @@ export default class Lazy extends React.Component {
     render() {
         return (
             <li ref={this.subscribeScroll}>
-                {this.state.load ? <div /> : null}
+                {this.state.load ? <div className={this.props.preload ? '' : 'lazy-loaded'}/> : null}
             </li>
         );
     }
