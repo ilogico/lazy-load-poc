@@ -1,11 +1,11 @@
-li {
+.li {
     list-style: none;
     width: 300px;
     margin: 10px  auto;
     height: 300px;
 }
 
-li > div {
+.li > div {
     background-color: olivedrab;
     width: 100%;
     height: 100%;
@@ -24,6 +24,3 @@ li > div {
     }
 }
 
-button {
-    position: fixed;
-}

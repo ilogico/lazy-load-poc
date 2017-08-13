@@ -1,19 +1,23 @@
 'use strict';
 import React from 'react';
+import styles from './Mounter.css';
 
 export default class Mounter extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { mount: true };
+        this.state = { selected: 0 };
 
-        this.handleToggle = () => this.setState(s => ({ mount: !s.mount }));
     }
 
     render() {
+        const children = [].concat(this.props.children);
+        const { selected } = this.state;
         return (
             <div>
-                <button onClick={this.handleToggle}>{this.state.mount ? 'Unmount' : 'Mount'}</button>
-                { this.state.mount  ? <div>{this.props.children}</div> : null }
+                <nav className={styles.nav}>
+                    { children.map((c, i) => <button disabled={i === selected} key={i} onClick={() => this.setState({ selected: i })} >{c.props.name}</button>) }
+                </nav>
+                { children[selected] }
             </div>
         );
     }

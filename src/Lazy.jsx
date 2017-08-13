@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { subscribe } from './scrollService.js';
+import styles from './Lazy.css';
 
 const propTypes = {
     load: PropTypes.bool
@@ -79,8 +80,8 @@ export default class Lazy extends React.Component {
 
     render() {
         return (
-            <li ref={this.subscribeScroll}>
-                {this.state.load ? <div className={this.props.preload ? '' : 'lazy-loaded'}/> : null}
+            <li ref={this.subscribeScroll} className={styles.li}>
+                {this.state.load ? <div className={this.props.preload ? '' : styles.lazyLoaded}/> : null}
             </li>
         );
     }

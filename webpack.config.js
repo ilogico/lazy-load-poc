@@ -9,14 +9,33 @@ module.exports = {
     },
     devtool: 'sourcemap',
     module: {
-        loaders: [
+        rules: [
             {
-                loader: 'babel-loader',
                 test: /\.js(?:x)?$/,
                 exclude: /node_modules/,
-                query: {
-                    presets: ['react']
-                }
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        query: {
+                            presets: ['react']
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                include: path.join(__dirname, 'src'),
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'typings-for-css-modules-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            camelCase: true
+                        }
+                    }
+                ]
             }
         ]
     }
