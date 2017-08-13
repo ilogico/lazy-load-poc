@@ -1,7 +1,8 @@
 .container {
-    overflow: hidden;
     border: 1px solid rebeccapurple;
+    height: 0;
     transition: height 0.3s ease;
+    overflow: hidden;
 }
 
 .header {
@@ -10,4 +11,8 @@
     background-color: olive;
     color: white;
     cursor: pointer;
+}
+
+.content {
+    overflow: hidden;
 }
